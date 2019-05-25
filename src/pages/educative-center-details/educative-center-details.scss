@@ -1,0 +1,47 @@
+page-educative-center-details {
+  ion-title {
+    text-align: center;
+    font-weight: bolder;
+  }
+
+  .section-detail-last {
+    background-color: white !important;
+
+    .main-col {
+      background-color: gray;
+      color: white;
+      border-radius: 35px;
+      text-align: center;
+    }
+  }
+
+  #titulodetallescentroeducativo > ion-col > p {
+    font-size: 12px !important;
+    text-align: left !important;
+    margin: 5px !important;
+  }
+
+  #centroseducativosdocentetitle {
+    font-weight: bolder !important;
+  }
+
+  ion-card {
+    background-color: white !important;
+    border-radius: 15px !important;
+  }
+
+  p {
+    font-family: "Avenir_Book";
+    margin-bottom: 0% !important;
+  }
+
+  #materiasasignadasdocente > ion-col > p {
+    font-size: 0.7em !important;
+    margin: 0.7em !important;
+  }
+
+  .p-text {
+    font-size: 0.7em !important;
+    margin: 0.7em !important;
+  }
+}

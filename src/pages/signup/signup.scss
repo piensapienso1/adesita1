@@ -1,0 +1,78 @@
+page-signup {
+  .toolbar-title {
+    font-size: 15px !important;
+    font-weight: bolder !important;
+  }
+  .toolbar {
+    padding: 0% !important;
+  }
+
+  ion-title {
+    font-weight: bolder !important;
+  }
+  ion-card {
+    background-color: white !important;
+  }
+  ion-item {
+    background-color: white !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  ion-card {
+    border-radius: 15px !important;
+  }
+  ion-card-header {
+    padding: 5px !important;
+  }
+
+  ion-input {
+    color: lightgray !important;
+    border: 1px solid;
+    padding: 0px !important;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  ion-label {
+    color: lightgray !important;
+  }
+
+  .list-ios > .item-block:first-child {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+    border-top-width: 0px !important;
+    border-top-style: none;
+  }
+
+  .list-md > .item-block:first-child {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+    border-top-width: 0px !important;
+    border-top-style: none;
+  }
+
+  .tyc-text {
+    font-size: 10px;
+    white-space: normal !important;
+
+    .checkbox {
+      margin-right: 2px !important;
+    }
+  }
+
+  .small-n-center {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .item-datetime .item-inner .input-wrapper {
+    border: 1px solid #e4e4e4;
+    border-radius: 10px;
+  }
+
+  .datetime-md {
+    padding-left: 0.45em;
+    padding-bottom: 0.15em;
+  }
+}

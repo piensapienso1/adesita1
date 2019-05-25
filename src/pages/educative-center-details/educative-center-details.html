@@ -1,0 +1,212 @@
+<!--
+  Generated template for the EducativeCenterDetailsPage page.
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Centro educativo</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row *ngIf="school" id="titulodetallescentroeducativo" padding>
+    <ion-col col-3><img src="assets/imgs/centroeducativo.png"/></ion-col>
+    <ion-col col-9 center>
+      <p id="centroseducativosdocentetitle">{{ school.name }}</p>
+      <p>RNC: {{ school.document_id }}</p>
+      <p>Teléfono: {{ school.name }}</p>
+      <p>Dirección: {{ school.street }}</p>
+    </ion-col>
+  </ion-row>
+
+  <div *ngFor="let opciones of schoolOptionsDetails; let index = index">
+    <!-- Ubicacion  -->
+
+    <ion-card *ngIf="opciones.type == 'ubicacion'">
+      <ion-card-header>
+        <p>Dirección:</p>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col col-4></ion-col>
+          <ion-col col-4
+            ><img src="{{ 'assets/imgs/' + opciones.image + '.png' }}"
+          /></ion-col>
+          <ion-col col-4></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col padding-left padding-right style="text-align:center" col-12>
+            <p>{{ opciones.description }}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3></ion-col>
+          <ion-col col-6>
+            <button ion-button padding block round color="primary2">
+              {{ opciones.buttontext }}
+            </button>
+          </ion-col>
+          <ion-col col-3></ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Perfil del director  -->
+
+    <ion-card *ngIf="profileDirector">
+      <ion-row>
+        <ion-col col-4></ion-col>
+        <ion-col col-4>
+          <img src="{{ 'assets/imgs/' + profileDirector.image + '.png' }}" />
+        </ion-col>
+        <ion-col col-4></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12 style="text-align:center">
+          <p style="font-weight:bolder !important">
+            {{ profileDirector.nombredirectorcentro }}
+          </p>
+          <p>ID: {{ profileDirector.ID }}</p>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <!-- Boletines  -->
+
+    <ion-card *ngIf="opciones.type == 'boletinesinformativos'">
+      <ion-row>
+        <ion-col col-4></ion-col>
+        <ion-col col-4
+          ><img src="{{ 'assets/imgs/' + opciones.image + '.png' }}"
+        /></ion-col>
+        <ion-col col-4></ion-col>
+      </ion-row>
+      <ion-row style="text-align:center">
+        <ion-col col-12>
+          <p style="font-weight:bolder !important">{{ opciones.title }}</p>
+          <p>{{ opciones.description }}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3></ion-col>
+        <ion-col col-6
+          ><button ion-button block color="primary" (click)="goToNewLetter()">
+            {{ opciones.buttontext }}
+          </button></ion-col
+        >
+        <ion-col col-3></ion-col>
+      </ion-row>
+    </ion-card>
+
+    <!-- Mensaje del centro  -->
+
+    <ion-card *ngIf="opciones.type == 'mensajescentroeducativo'">
+      <ion-row>
+        <ion-col col-4.5></ion-col>
+        <ion-col col-3
+          ><img src="{{ 'assets/imgs/' + opciones.image + '.png' }}"
+        /></ion-col>
+        <ion-col col-4.5
+          ><img
+            style="float: right; width: 25%"
+            src="{{ 'assets/imgs/' + opciones.icon + '.png' }}"
+        /></ion-col>
+      </ion-row>
+      <ion-row style="text-align:center">
+        <ion-col col-12>
+          <p style="font-weight:bolder !important">{{ opciones.title }}</p>
+          <p>{{ opciones.description }}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3></ion-col>
+        <ion-col col-6
+          ><button ion-button block color="primary">
+            {{ opciones.buttontext }}
+          </button></ion-col
+        >
+        <ion-col col-3></ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+
+  <!-- Materias Asignadas -->
+
+  <div class="section-detail-last" *ngIf="isTeacher">
+    <ion-row padding-right padding-left>
+      <ion-col margin-top margin-bottom col-12 class="main-col">
+        <p no-margin>MATERIAS ASIGNADAS</p>
+      </ion-col>
+    </ion-row>
+    <div style="overflow-y: scroll; max-height: 15em">
+      <div *ngFor="let subject of subjects">
+        <button
+          ion-button
+          color="white"
+          style="height: 100%; text-align: left"
+          (click)="goToSubjectDetails(subject)"
+        >
+          <ion-row id="materiasasignadasdocente">
+            <ion-col col-3>
+              <img src="{{ 'assets/imgs/' + subject.image + '.png' }}" />
+            </ion-col>
+            <ion-col col-9>
+              <p class="p-text"><strong>Curso: </strong>{{ subject.curso }}</p>
+              <p class="p-text">
+                <strong>Materia: </strong>{{ subject.materia }}
+              </p>
+              <p class="p-text">
+                <strong>Horario: </strong>{{ subject.horario }}
+              </p>
+              <p>
+                <strong>Cantidad estudiantes: </strong
+                >{{ subject.cantidadestudiantes }}
+              </p>
+            </ion-col>
+          </ion-row>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hijos Inscritos  -->
+
+  <div class="section-detail-last" *ngIf="isTutor">
+    <ion-row padding-right padding-left>
+      <ion-col margin-top margin-bottom col-12 class="main-col">
+        <p no-margin>HIJOS INSCRITOS</p>
+      </ion-col>
+    </ion-row>
+    <div style="overflow-y: scroll; max-height: 15em">
+      <div *ngFor="let child of enrolled">
+        <button
+          ion-button
+          color="white"
+          style="height: 100%;"
+          (click)="goToChildStudent(child)"
+        >
+          <ion-row id="materiasasignadasdocente">
+            <ion-col col-3>
+              <img src="{{ 'assets/imgs/' + child.image + '.png' }}" />
+            </ion-col>
+            <ion-col col-9>
+              <p>
+                <strong>{{ schoolName }}</strong>
+              </p>
+              <p>
+                <strong>{{ child.fullName }}</strong>
+              </p>
+              <p class="p-text">
+                <strong>ID Estudiante: </strong>{{ child.userCode }}
+              </p>
+              <p class="p-text" *ngIf="child.course">
+                <strong>Curso: </strong>{{ child.course }}
+              </p>
+            </ion-col>
+          </ion-row>
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-content>

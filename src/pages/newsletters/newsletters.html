@@ -1,0 +1,51 @@
+<!--
+  Generated template for the NewslettersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Boletines</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col col-4></ion-col>
+    <ion-col col-4><img width="100%" src="assets/imgs/boletines.png"/></ion-col>
+    <ion-col col-4></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+      <h5>Boletines Informativos</h5>
+      <p id="windowdescription">Este es su listado de boletines.</p>
+    </ion-col>
+  </ion-row>
+  <div class="white-bg">
+    <ion-row
+      id="boletinesdocente"
+      *ngFor="let news of newsLettersOptions"
+      (click)="_NewslettersDetails(news)"
+    >
+      <ion-col col-2 padding-top>
+        <img src="{{ 'assets/imgs/' + news.image + '.png' }}" />
+      </ion-col>
+      <ion-col col-9 padding-bottom>
+        <p>
+          <strong class="bold-strong">{{ news.NomCenter }}</strong>
+        </p>
+        <p class="bold-strong">{{ news.date }}</p>
+        <p class="bold-strong">{{ news.title }}</p>
+      </ion-col>
+      <ion-col col-1
+        ><img width="100%" src="{{ 'assets/imgs/' + news.icon + '.png' }}"
+      /></ion-col>
+    </ion-row>
+  </div>
+
+  <div class="row-center" *ngIf="!newsLettersOptions">
+    <img src="assets/imgs/no_Icon.png" />
+    <p ion-text text-center>No hay boletines disponibles</p>
+  </div>
+</ion-content>

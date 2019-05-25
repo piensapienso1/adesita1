@@ -1,0 +1,187 @@
+<!--
+  Generated template for the HomeLoggedPage page.
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-title>ADES</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row style="height: 200px">
+    <ion-col col-3.5>
+      <img
+        (click)="_popUpMenu()"
+        width="100%"
+        src="assets/nuevos_iconos/logoades-small.png"
+      />
+    </ion-col>
+    <ion-col col-5>
+      <img
+        *ngIf="tipodeusuario"
+        center
+        width="100%"
+        src="{{ 'assets/nuevos_iconos/' + tipodeusuario + '.png' }}"
+      />
+    </ion-col>
+    <ion-col col-3.5>
+      <img
+        (click)="_NotificationsPage()"
+        style="margin-left: 35px"
+        width="43%"
+        height="28%"
+        src="assets/nuevos_iconos/notificaciondesactivada.png"
+      />
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+      <h4 no-margin class="text-test" style="text-align:center">
+        Bienvenido {{ tipodeusuario }}
+      </h4>
+      <p no-margin *ngIf="tipodeusuario == 'director'">
+        A continuación le presentamos el detalle del centro escolar a su cargo.
+      </p>
+      <p no-margin *ngIf="tipodeusuario == 'docente'">
+        A continuación le presentamos los centros educativos donde imparte
+        docencia y mucho mas.
+      </p>
+      <p no-margin *ngIf="tipodeusuario == 'tutor'">
+        Aqui podra dar seguimiento a la escolaridad de sus hijos.
+      </p>
+    </ion-col>
+  </ion-row>
+  <div class="profile-block">
+    <ion-row>
+      <ion-col col-4>
+        <img width="100%" style="margin-top:20px" src="assets/imgs/perfil.png"
+      /></ion-col>
+
+      <ion-col col-8 style="text-align:center">
+        <h3>Perfil del {{ tipodeusuario }}</h3>
+        <h4>{{ userLoggedIn?.firstname }} {{ userLoggedIn?.lastname }}</h4>
+        <p>ID: {{ userLoggedIn?.ID }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-3></ion-col>
+      <ion-col col-6
+        ><button ion-button (click)="_goToEditProfile()" round>
+          Editar perfil
+        </button></ion-col
+      >
+      <ion-col col-3></ion-col>
+    </ion-row>
+    <ion-row class="update-data">
+      <p>
+        Actualice sus datos para que los centros educativos obtengan una mejor
+        referencia sobre usted.
+      </p>
+    </ion-row>
+  </div>
+
+  <h2 *ngIf="isPrincipal">Módulos administrativos</h2>
+
+  <div *ngIf="isPrincipal">
+    <div *ngFor="let opciones of adminsModules">
+      <ion-card color="white">
+        <ion-card-header>
+          <ion-card-title>
+            <ion-row>
+              <ion-col col-4></ion-col>
+              <ion-col col-4>
+                <img
+                  style="width:100%"
+                  src="{{ 'assets/imgs/' + opciones.image + '.png' }}"
+                />
+              </ion-col>
+              <ion-col col-4></ion-col>
+            </ion-row>
+            {{ opciones.title }}
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{ opciones.description }}
+        </ion-card-content>
+        <ion-item
+          style="background-color:white; display:flex; justify-content:center"
+        >
+          <ion-row>
+            <ion-col col-2.5></ion-col>
+            <ion-col col-6>
+              <button
+                color="primary2"
+                id="buttonsopciones"
+                style="padding:20px"
+                ion-button
+                full
+                (click)="_OpenPage(opciones.component)"
+              >
+                {{ opciones.buttontext }}
+              </button>
+            </ion-col>
+            <ion-col col-3.5></ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-card>
+    </div>
+  </div>
+  <br />
+
+  <!-- <div margin-bottom *ngIf="tipodeusuario=='docente' || tipodeusuario=='tutor' &&  modulosadministrativos">
+      <div *ngFor="let opciones of modulosadministrativos" >
+        <ion-row *ngIf="opciones.tipodeusuario=='docente' || opciones.tipodeusuario=='tutor'">
+    <ion-col  col-3.5></ion-col>
+    <ion-col col-5><img src="{{ 'assets/imgs/'+opciones.image+'.png' }}"></ion-col>
+    <ion-col col-3.5></ion-col>
+    <ion-col col-12 style="text-align:center">
+      <h5 no-margin>{{ opciones.title }}</h5>
+     <p no-margin>{{ opciones.description }}</p> 
+    </ion-col>
+  </ion-row>
+      </div> 
+</div> -->
+
+  <div *ngIf="isSchoolTeacherOrTutor" style="background-color:white">
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <ion-col margin-top no-padding col-10 class="list-school-block">
+        <p no-margin>LISTADO</p>
+      </ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+    <div *ngFor="let opciones of tutorsAndTeachersSchool">
+      <button
+        ion-button
+        color="white"
+        class="desciption"
+        (click)="centroEducativoDetalles(opciones)"
+        style="height: 100%; text-align: left"
+      >
+        <ion-row id="tutorsAndTeachersSchool">
+          <ion-col col-3>
+            <img
+              src="{{
+                'assets/imgs/' + (opciones.image || 'centroeducativo') + '.png'
+              }}"
+            />
+          </ion-col>
+          <ion-col col-9>
+            <p id="centroseducativosdocentetitle" class="title p-text">
+              {{ opciones.school_name }}
+            </p>
+            <p class="p-text">Calle: {{ opciones.street }}</p>
+            <p class="p-text">RNC: {{ opciones.document_id }}</p>
+            <p class="p-text" *ngIf="opciones.telephone">Telefono: {{ opciones.telephone }}</p>
+          </ion-col>
+        </ion-row>
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="!adminsModules" style="text-align:center">
+    Ha ocurrido un error, favor vuelva a abrir la aplicacion.
+  </div>
+</ion-content>

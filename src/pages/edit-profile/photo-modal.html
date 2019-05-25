@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Fotos</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <h2>Galeria de fotos</h2>
+
+    <ion-row>
+        <ion-col col-6 *ngFor="let photo of photos">
+            <ion-card (click)="selectThisImg(photo)">
+              <ion-card-content>
+                  <img [src]="photo.thumbnailURL | cdvphotolibrary">
+              </ion-card-content>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+    
+    <button (click)="dismiss()">Cancelar</button>
+</ion-content>

@@ -1,0 +1,105 @@
+page-home-logged {
+  ion-title {
+    font-family: "SUBEXKG" !important;
+    font-weight: 400;
+    text-align: center !important;
+  }
+
+  #iconos {
+    border-radius: 100% !important;
+  }
+
+  #iconoprincipal {
+    width: 100%;
+  }
+  #centroseducativosdocentes > ion-col > p {
+    font-size: 12px !important;
+    text-align: left !important;
+    margin: 5px !important;
+  }
+
+  #centroseducativosdocentetitle {
+    font-weight: bolder !important;
+  }
+
+  ion-content {
+    padding-top: 5px !important;
+  }
+
+  h2 {
+    text-align: center;
+  }
+  p {
+    text-align: center;
+    font-size: 15px !important;
+  }
+
+  #buttonsopciones {
+    border-radius: 10px !important;
+  }
+
+  ion-card-title {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  ion-card {
+    border-radius: 20px !important;
+  }
+  ion-card-content {
+    text-align: center;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding-left: 3% !important;
+    padding-right: 3% !important;
+    padding-bottom: 0% !important;
+    font-size: 15px !important;
+  }
+
+  ion-card-header {
+    padding-top: 0% !important;
+    padding-bottom: 0% !important;
+  }
+  ion-card-title {
+    padding-top: 2% !important;
+    padding-bottom: 0% !important;
+  }
+
+  .profile-block {
+    background-color: white;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+
+  .update-data {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+
+    p {
+      color: gray;
+      font-size: 16px !important;
+    }
+  }
+
+  .list-school-block {
+    background-color: gray;
+    border-radius: 35px !important;
+    color: white;
+    text-align: center;
+
+    .title {
+      font-size: 15px !important;
+    }
+  }
+  .school-element {
+    .description p {
+      text-align: left;
+      font-size: 9px !important;
+    }
+  }
+  .p-text {
+    text-align: left;
+    font-size: 0.7em !important;
+    margin: 1em;
+  }
+}

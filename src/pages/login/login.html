@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ "LOGIN_TITLE" | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="white">
+    <form (submit)="doLoginT()">
+      <ion-list>
+        <ion-row>
+          <ion-col col-4
+            ><img src="assets/imgs/registrarse.png" alt=""
+          /></ion-col>
+          <ion-col col-8
+            ><h2>Inicie sesión con los datos solicitados.</h2></ion-col
+          >
+        </ion-row>
+        <hr />
+        <!-- <ion-item color="white">
+        <ion-label floating>{{ 'EMAIL' | translate }}</ion-label>
+        <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
+      </ion-item>-->
+
+        <ion-item color="white">
+          <ion-label floating>{{ "USERNAME" | translate }}</ion-label>
+          <ion-input
+            type="text"
+            [(ngModel)]="account.user_name"
+            name="username"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item color="white">
+          <ion-label floating>{{ "PASSWORD" | translate }}</ion-label>
+          <ion-input
+            type="password"
+            [(ngModel)]="account.password"
+            name="password"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item id="select" color="white">
+          <ion-label>Método de Inicio</ion-label>
+          <ion-select
+            [ngModelOptions]="{ standalone: true }"
+            [(ngModel)]="account.id_type"
+          >
+            <ion-option value="3">Docente</ion-option>
+            <ion-option value="4">Padre o Tutor</ion-option>
+            <ion-option value="2">Director</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-row>
+          <ion-col col-12 style="text-align:end"
+            ><a>Olvidó la contraseña?</a></ion-col
+          >
+        </ion-row>
+      </ion-list>
+    </form>
+    <ion-row>
+      <ion-col col-2></ion-col>
+      <ion-col col-8>
+        <div padding>
+          <button ion-button (click)="doLoginT()" color="primary" full>
+            {{ "LOGIN_BUTTON" | translate }}
+          </button>
+          <br />
+          <button ion-button (click)="atras()" color="danger" full>
+            {{ "CANCEL_BUTTON" | translate }}
+          </button>
+        </div>
+      </ion-col>
+      <ion-col col-2></ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

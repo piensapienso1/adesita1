@@ -1,0 +1,43 @@
+    
+page-edit-profile {
+
+    ion-content{
+        background-color: white !important;
+    }
+
+  ion-item{
+      background-color: white !important;
+      padding-left: 0% !important
+  }
+
+  .toolbar-title{
+
+    font-size: 15px !important;
+    font-weight: bolder !important;
+}
+.toolbar{
+    padding: 0% !important
+}
+
+
+  .scroll-content{
+      padding-top: 0px !important
+  }
+
+  ion-input{
+      border: 1px solid;
+      padding: 0px !important;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      background-color: white !important;
+      height: 40px;
+      color: lightgray !important;
+  }
+
+  .main-text {
+    color:lightgray; 
+    font-size: 10px !important; 
+    margin: 0% !important
+  }
+}
+

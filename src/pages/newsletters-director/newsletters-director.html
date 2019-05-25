@@ -1,0 +1,59 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Boletines</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-row>
+    <ion-col col-4></ion-col>
+    <ion-col col-4><img width="100%" src="assets/imgs/boletines.png" alt=""></ion-col>
+    <ion-col col-4></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+      <h5>Modulo boletines</h5>
+      <p id="windowdescription">Cree sus boletines informativos.</p>
+    </ion-col>
+  </ion-row>
+  <div style="background-color:white; padding: 1em 2em">
+    <ion-row>
+      <ion-col col-12>
+        <p style="font-size:14px !important">Seleccione a qué entidad se enviará el boletín</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="background-color:white">
+
+      <ion-item style="width:100% !important; background-color: white">
+        <ion-label>Seleccionar</ion-label>
+        <ion-select [ngModelOptions]="{standalone:true}" [(ngModel)]="memo.id_memo_type">
+          <ion-option value="1">Docente</ion-option>
+          <ion-option value="2">Padre o Tutor</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-row>
+
+    <div style="background-color:white;text-align:center;">
+      <h5 style=" padding-bottom: 5px !important; padding-top: 40px !important" no-margin>Encabezado</h5>
+      <ion-item>
+        <ion-input [(ngModel)]="memo.title" placeholder="Escriba encabezado" style="border-radius:15px;border:1;"
+          type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-textarea rows=10 [(ngModel)]="memo.description" placeholder="Descripción" style="height:150px" type="text">
+        </ion-textarea>
+      </ion-item>
+
+      <ion-row>
+        <ion-col col-3></ion-col>
+        <ion-col col-6><button block ion-button (click)="_sendMemo()" color="secondary">Enviar</button></ion-col>
+        <ion-col col-3></ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,51 @@
+page-newsletters {
+    #windowdescription{
+        text-align: center !important;
+        font-size: 15px !important;
+        white-space: normal;
+        margin-top: 0 !important;
+
+    }
+
+    .bold-strong {
+      font-weight:bolder;
+      font-size:15px !important;
+    }
+
+    .white-bg {
+      background-color:white
+    }
+
+    h5{
+        text-align: center;
+        margin-bottom: 0 !important;
+    }
+
+    ion-item{
+        background-color:white !important
+    }
+
+    #boletinesdocente>ion-col>p{
+        font-size: 12px !important;
+        text-align: left !important;
+        margin: 5px !important;
+    }
+
+    
+.row-center {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .row-center p {
+    color: #666666 !important;
+    margin: 12px !important;
+    font-size: 1em;
+  }
+  .row-center img {
+    margin-top: 30%;
+    max-width: 60%;
+  }
+
+}
